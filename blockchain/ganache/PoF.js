@@ -1,5 +1,5 @@
-const pof = require("../blockchain/PoF");
-const util = require("../blockchain/utility");
+const pof = require("../consensus-protocols/PoF");
+const util = require("../utility");
 
 const latte = new pof.Blockchain();
 

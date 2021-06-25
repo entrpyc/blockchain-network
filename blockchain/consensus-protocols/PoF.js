@@ -1,5 +1,5 @@
 const SHA256 = require('crypto-js/sha256');
-const util = require("./utility")
+const util = require("../utility")
 
 class Transaction {
   constructor(fromAddress, toAddress, amount) {
