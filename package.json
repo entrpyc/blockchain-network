@@ -1,0 +1,13 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "ganache": "bash shell/run-ganache.sh",
+    "api": "bash shell/run-api.sh"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
