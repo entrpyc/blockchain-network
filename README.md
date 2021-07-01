@@ -1,5 +1,13 @@
+# How to run the app
+
+Run the server:
+```Shell
+cd blockchain
 yarn api
+```
 
-yarn ganache
-
-yarn test
+Run the interface:
+```Shell
+cd interface
+yarn start
+```
