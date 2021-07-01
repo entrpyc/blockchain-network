@@ -1,4 +1,4 @@
-const pof = require("../consensus-protocols/PoF");
+const pof = require("../network/consensus-protocols/PoF");
 const util = require("../utility");
 
 const latte = new pof.Blockchain();

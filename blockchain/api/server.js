@@ -1,10 +1,10 @@
 const express = require('express');
 const app = require('express')();
-const pof = require("../consensus-protocols/PoF");
+const { Blockchain, Transaction } = require("./modules/blockchain-pow");
 
 const PORT = 8080;
 
-const latte = new pof.Blockchain();
+const blockchain = new Blockchain();
 
 app.use( express.json() )
 
@@ -14,7 +14,7 @@ app.listen(
 )
 
 app.get('/blockchain', (req, res) => {
-  res.status(200).send(latte)
+  res.status(200).send(blockchain)
 });
 
 app.post('/transaction', (req, res) => {
@@ -25,7 +25,7 @@ app.post('/transaction', (req, res) => {
     return
   }
 
-  latte.createTransaction(new pof.Transaction(fromAddress, toAddress, amount))
+  blockchain.createTransaction(new Transaction(fromAddress, toAddress, amount))
 
   res.send({
     status: `Request completed: ${fromAddress} -> ${toAddress}: ${amount}`
@@ -34,7 +34,7 @@ app.post('/transaction', (req, res) => {
 
 app.get('/balance', (req, res) => {
   const { address } = req.body;
-  const walletBalance = latte.getBalanceOfAddress(address)
+  const walletBalance = blockchain.getBalanceOfAddress(address)
 
   res.send({
     balance: `${address}: ${walletBalance}`

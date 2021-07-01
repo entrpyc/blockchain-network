@@ -1,1 +1,1 @@
-node api/expose-blockchain.js
+node api/server.js

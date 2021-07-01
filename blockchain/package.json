@@ -5,9 +5,14 @@
   "license": "MIT",
   "scripts": {
     "ganache": "bash shell/run-ganache.sh",
-    "api": "bash shell/run-api.sh"
+    "api": "bash shell/run-api.sh",
+    "test": "jest"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "unfetch": "^4.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
   }
 }
