@@ -1,0 +1,72 @@
+@use "../../media.scss" as responsive;
+
+@mixin main {
+  @include levels;
+}
+
+@mixin levels {
+  .background {
+    z-index: -1;
+  }
+
+  .popup .text-container,
+  .popup .text-container::before {
+    z-index: 1;
+  }
+
+  .popup svg {
+    z-index: 2;
+  }
+  
+  .select-token-container .scroll-view::after {
+    z-index: 3;
+  }
+
+  .select .dropdown {
+    z-index: 3;
+  }
+
+  .select .dropdown-toggle {
+    z-index: 4;
+  }
+
+  
+  .listing-container {
+    z-index: 4;
+    position: relative;
+  }
+  
+  .transaction-form {
+    z-index: 4;
+  }
+
+  .router,
+  .main-footer {
+    z-index: 4;
+  }
+  
+  .select .dropdown-icon {
+    z-index: 5;
+  }
+  
+  .modal-overlay {
+    z-index: 6;
+  }
+
+  header.main-header {
+    z-index: 7;
+  }
+
+  .modal-container {
+    z-index: 21;
+  }
+
+  @include responsive.mobile {
+    .intersection.from {
+      z-index: 20;
+    }
+    .info .popup:hover .text-container::before {
+      z-index: 90;
+    }
+  }
+}

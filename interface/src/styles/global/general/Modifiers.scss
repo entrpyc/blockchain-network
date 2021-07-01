@@ -1,0 +1,35 @@
+@use "../../inherit" as *;
+
+@mixin main {
+  @include cursor-modifier;
+}
+
+@mixin cursor-modifier($modifier:null) {
+  .cursor-modifier {
+    @if $modifier == null {
+      cursor: pointer;
+    }
+    @else {
+      cursor: $modifier;
+    }
+
+    @include reduce-motion {
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include dropdown-toggle;
+    @content;
+  }
+}
+
+@mixin dropdown-toggle {
+  &.dropdown-toggle {
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

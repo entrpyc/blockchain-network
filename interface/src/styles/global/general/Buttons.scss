@@ -1,0 +1,64 @@
+@use "../../inherit.scss" as *;
+
+@mixin main {
+  @include primary-button;
+}
+
+@mixin primary-button {
+  .primary-button {
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    background: rgba($color-bright, 1);
+    border-radius: 19px;
+    padding: 12px 21px;
+    font-weight: $weight-bold;
+    font-size: $size-sub;
+    color: $primary-button-color;
+    @include button-shadow(0.3);
+    @include button-proccessing;
+
+    @include reduce-motion {
+      transition: 0.2s ease-out;
+    }
+
+    &:active {
+      background: rgba($color-bright, 0.65);
+    }
+
+    &:hover {
+      background: rgba($color-bright, 0.85);
+    }
+
+    &[disabled] {
+      color: $primary-button-color;
+      background: $button-disabled-color;
+
+      &:hover,
+      &:active {
+        opacity: 1;
+        cursor: auto;
+      }
+    }
+  }
+}
+
+@mixin button-proccessing {
+  &.proccessing {
+    pointer-events: none;
+
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    @include reduce-motion {
+      transition: 0.2s ease-in-out;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {opacity: 1;}
+  50% {opacity: 0.87;}
+  100% {opacity: 1;}
+}

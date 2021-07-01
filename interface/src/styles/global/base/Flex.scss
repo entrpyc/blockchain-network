@@ -1,0 +1,126 @@
+@mixin main($selector) {
+  @include flex-grid(#{$selector});
+  @include width(#{$selector});
+  @include max-width(#{$selector});
+  @include d-none(#{$selector});
+}
+
+//flex
+@mixin flex-grid($selector) {
+  .flex {
+    display: flex;
+
+    &.inline#{$selector} {
+      display: inline-flex;
+    }
+    &.wrap#{$selector} {
+      flex-wrap: wrap;
+    }
+    &.row#{$selector} {
+      flex-direction: row;
+    }
+    &.row-reverse#{$selector} {
+      flex-direction: row-reverse;
+    }
+    &.column#{$selector} {
+      flex-direction: column;
+    }
+    &.column-reverse#{$selector} {
+      flex-direction: column-reverse;
+    }
+    &.ai-center#{$selector} {
+      align-items: center;
+    }
+    &.ai-start#{$selector} {
+      align-items: flex-start;
+    }
+    &.ai-end#{$selector} {
+      align-items: flex-end;
+    }
+    &.ai-stretch#{$selector} {
+      align-items: stretch;
+    }
+    &.jc-center#{$selector} {
+      justify-content: center;
+    }
+    &.jc-sb#{$selector} {
+      justify-content: space-between;
+    }
+    &.jc-sa#{$selector} {
+      justify-content: space-around;
+    }
+    &.jc-start#{$selector} {
+      justify-content: flex-start;
+    }
+    &.jc-end#{$selector} {
+      justify-content: flex-end;
+    }
+    &.jc-stretch#{$selector} {
+      justify-content: stretch;
+    }
+    &.exists {
+      flex: 1;
+    }
+    &.center {
+      align-items: center;
+      justify-content: center;
+    }
+    &.split {
+      align-items: center;
+      justify-content: space-between;
+    }
+    &.no-shrink {
+      flex-shrink: 0;
+    }
+  }
+}
+
+//width and max-width
+@mixin width($selector) {
+  .w100#{$selector} {
+    width: 100%;
+  }
+  .w50#{$selector} {
+    width: 50%;
+  }
+  .w33#{$selector} {
+    width: calc(100% / 3);
+  }
+  .w25#{$selector} {
+    width: 25;
+  }
+  .w20#{$selector} {
+    width: 20%;
+  }
+  .w10#{$selector} {
+    width: 10%;
+  }
+}
+
+@mixin max-width($selector) {
+  .mw100#{$selector} {
+    max-width: 100%;
+  }
+  .mw50#{$selector} {
+    max-width: 50%;
+  }
+  .mw33#{$selector} {
+    max-width: calc(100% / 3);
+  }
+  .mw25#{$selector} {
+    max-width: 25;
+  }
+  .mw20#{$selector} {
+    max-width: 20%;
+  }
+  .mw10#{$selector} {
+    max-width: 10%;
+  }
+}
+
+//other
+@mixin d-none($selector) {
+  .d-none#{$selector} {
+    display: none !important;
+  }
+}

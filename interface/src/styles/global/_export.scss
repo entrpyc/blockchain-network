@@ -1,0 +1,21 @@
+@use "./base/Reset.scss" as reset;
+@use "./base/Flex.scss" as flex;
+@use "./base/Grid.scss" as grid;
+
+@use "./general/Forms.scss" as forms;
+@use "./general/Buttons.scss" as buttons;
+@use "./general/Levels.scss" as levels;
+@use "./general/Main.scss" as main;
+@use "./general/Modifiers.scss" as modifiers;
+
+$load-default: ''; // default grid key - example: class="flex column-$load-default w50-$load-default"
+
+@include reset.main();
+@include flex.main($load-default);
+@include grid.main();
+
+@include forms.main();
+@include buttons.main();
+@include levels.main();
+@include main.main();
+@include modifiers.main();

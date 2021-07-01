@@ -1,0 +1,48 @@
+@use "../../inherit.scss" as *;
+
+@mixin main {
+  @include container;
+  @include container-large;
+  @include general;
+  @include app-modifiers;
+}
+
+@mixin general {
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer.main-footer {
+    margin-top: auto;
+  }
+}
+
+@mixin container {
+  .container {
+    max-width: 648px;
+    margin: 0 auto;
+    width: 100%;
+    
+    @include mobile {
+      padding: 0 20px;
+    }
+  }
+}
+
+@mixin container-large {
+  .container-large {
+    max-width: 1266px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@mixin app-modifiers {
+  .app-container {
+    position: relative;
+  }
+}

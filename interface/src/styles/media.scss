@@ -1,0 +1,32 @@
+@mixin mobile-semi {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin high-end {
+  @media (min-width: 2501px) {
+    @content;
+  }
+}
+
+@mixin reduce-motion {
+  @content;
+
+  @media (prefers-reduced-motion) {
+    // transition: 0.1s ease-in-out;
+    // animation: none;
+  }
+}

@@ -8,6 +8,24 @@ const blockchain = new Blockchain();
 
 app.use( express.json() )
 
+app.use('/balance', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+  next();
+});
+
+app.use('/transaction', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+  next();
+});
+
+app.use('/mine', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+  next();
+});
+
 app.listen(
   PORT,
   () => console.log(`http://localhost:${PORT}`)

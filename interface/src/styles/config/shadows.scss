@@ -1,0 +1,14 @@
+$box-inner-shadow: 0px 1px 1px rgb(84 102 253 / 10%), inset 0px 0px 10px rgb(84 102 253 / 10%);
+$circle-inner-shadow: inset 0px 4px 4px rgba(2, 20, 171, 0.1);
+$popup-shadow: 0px 4px 8px #EEF0FF;
+$header-shadow: 0px 4px 27px rgba(70, 77, 137, 0.1);
+$header-menu-shadow: 0px 0px 8px rgba(2, 20, 171, 0.2);
+$transaction-information-shadow: 0px 8px 22px rgba(207, 212, 255, 0.5);
+$select-menu-shadow: 0px 4px 19px rgba(70, 77, 137, 0.1);
+$background-shadow: 0px 8px 22px rgba(204, 209, 255, 0.4);
+$modal-shadow: 0px 8px 35px rgba(204, 209, 255, 0.65);
+$token-listing-shadow: 0px 4px 19px rgba(84, 102, 253, 0.1);
+
+@mixin button-shadow($opacity) {
+  box-shadow: 0px 2px 9px rgba(84, 102, 253, $opacity);
+}

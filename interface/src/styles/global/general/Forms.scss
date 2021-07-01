@@ -1,0 +1,390 @@
+@use "../../inherit" as *;
+
+@mixin main {
+  @include input;
+  @include select;
+  @include label;
+  @include filed-is-required;
+}
+
+@mixin input {
+  [disabled] {
+    @include disable-control;
+  }
+
+  label {
+    font-size: $size-sub;
+    color: $color-labels;
+  }
+
+  label + input {
+    margin-top: 7px;
+  }
+
+  input {
+    width: 100%;
+    font-weight: $weight-bold;
+    line-height: $height-large;
+    color: $color-primary;
+    padding: 11px 20px;
+    
+    background: $input-background;
+    border: 1px solid $form-elements-border-color;
+    border-radius: 19px;
+
+    font-size: $size-regular;
+
+    @include placeholder {
+      color: $color-primary;
+
+      opacity: 0.4;
+    }
+  }
+}
+
+@mixin select {
+  .select {
+    position: relative;
+
+    .dropdown-icon {
+      width: 9px;
+      height: 9px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%) rotate(0);
+      @include reduce-motion {
+        transition: 0.15s ease-in-out;
+      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: 17px;
+      cursor: pointer;
+      pointer-events: none;
+    }
+
+    &:hover {
+      & > .dropdown-icon {
+        transform: translate(0, -50%) rotate(0);
+      }
+    }
+
+    & > select,
+    & > .dropdown-toggle {
+      background: $input-background;
+      border: 1px solid $form-elements-border-color;
+      border-radius: 19px;
+
+      padding: 12px 68px 12px 52px;
+      cursor: pointer;
+      position: relative;
+
+      @include select-font-style;
+      @include position-logo;
+    }
+
+    .jsx-element {
+      @include select-font-style;
+    }
+
+    & > .dropdown {
+      background: $input-background;
+      box-shadow: $select-menu-shadow;
+      border-radius: 5px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      @include reduce-motion {
+        transition: 0.15s ease-in-out;
+      }
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      padding-top: 20px;
+
+      .option {
+        padding: 15px 18px;
+        font-weight: $weight-bold;
+        font-size: $size-sub;
+        color: $color-primary;
+        cursor: pointer;
+        @include reduce-motion {
+          transition: 0.15s ease-in-out;
+        }
+
+        @include position-logo;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .option {
+      padding: 15px 18px;
+      font-weight: $weight-bold;
+      font-size: $size-sub;
+      color: $color-primary;
+      cursor: pointer;
+      @include reduce-motion {
+        transition: 0.15s ease-in-out;
+      }
+
+      @include position-logo;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &:hover {
+      & > .dropdown-toggle {
+        color: rgba($color-primary, 0.6);
+        border: 1px solid rgba($form-elements-border-color, 0.6);
+
+        & > .jsx-element {
+          opacity: 0.8;
+        }
+      }
+      & > .dropdown-icon {
+        opacity: 0.6;
+      }
+    }
+
+    &.active {
+      & > .dropdown {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+      }
+      & > .dropdown-toggle {
+        color: rgba($color-primary, 0.6);
+        border: 1px solid rgba($form-elements-border-color, 0.6);
+
+        & > .jsx-element {
+          opacity: 0.6;
+        }
+      }
+      & > .dropdown-icon {
+        transform: translate(0, -50%) rotate(180deg);
+        opacity: 0.6;
+      }
+    }
+
+    @include sub-styles;
+    @include disabled-custom-select;
+  }
+}
+
+@mixin disabled-custom-select {
+  &.disabled {
+    @include disable-control;
+
+    .dropdown-icon {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin disable-control {
+  pointer-events: none;
+  opacity: 0.6;
+  &.btn {
+    z-index: -1;
+  }
+}
+
+@mixin sub-styles {
+  &.network {
+    select,
+    .dropdown-toggle {
+      padding: 0;
+      height: 38px;
+      padding-left: 17px;
+      width: 205px;
+      display: flex;
+      align-items: center;
+
+      color: $select-placeholder-color;
+    }
+  }
+
+  &.token {
+    select,
+    .dropdown-toggle {
+      padding: 0;
+      height: 38px;
+      padding-left: 22px;
+      width: 140px;
+      display: flex;
+      align-items: center;
+
+      color: $select-placeholder-color;
+    }
+  }
+
+  &.menu-filter {
+    & > .dropdown-toggle {
+      padding: 10px 0;
+      padding-left: 18px;
+      width: 151px;
+      height: 34px;
+      font-size: $size-sub;
+      display: flex;
+      align-items: center;
+    }
+
+    & > .dropdown {
+      max-width: 383px;
+      width: 100vw;
+      transform: translateX(-50%) translateY(-10px);
+      left: 50%;
+      padding: 32px 26px 15px;
+
+      .statuses {
+        .status {
+          position: relative;
+          color: $color-primary;
+          font-size: $size-sub;
+          font-weight: $weight-bold;
+          cursor: pointer;
+          @include reduce-motion {
+            transition: 0.2s ease-in-out;
+          }
+
+          &:hover {
+            opacity: 0.8;
+          }
+
+          & + .status {
+            margin-left: 28px;
+          }
+
+          &.active {
+            color: $checkmark-color;
+            pointer-events: none;
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 4.2px;
+              height: 1px;
+              background: $checkmark-color;
+              display: block;
+              transform: rotate(45deg);
+              right: -9.2px;
+              bottom: 5px;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              width: 9px;
+              height: 1px;
+              background: $checkmark-color;
+              display: block;
+              transform: rotate(-45deg);
+              right: -16.2px;
+              bottom: 7px;
+            }
+          }
+        }
+      }
+      .filter.network {
+        margin-top: 19px;
+
+        p {
+          color: $color-primary;
+          font-size: $size-sub;
+          font-weight: $weight-bold;
+        }
+
+        .select {
+          margin-left: 14px;
+        }
+      }
+    }
+
+    &.active {
+      & > .dropdown {
+      transform: translateX(-50%) translateY(0);
+      }
+    }
+  }
+}
+
+@mixin position-logo {
+  .logo {
+    width: 21px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 13px;
+
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+@mixin select-font-style {
+  font-weight: $weight-bold;
+  font-size: $size-regular;
+
+  color: $color-primary;
+  @include reduce-motion {
+    transition: 0.2s ease-in-out;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+   @content;
+  }
+  &::-moz-placeholder {
+   @content;
+  }
+  &:-ms-input-placeholder { 
+   @content;
+  }
+  &::-ms-input-placeholder {
+   @content;
+  }
+  
+  &::placeholder { 
+   @content;
+  }
+}
+
+@mixin filed-is-required {
+  .required-field-prompt {
+    @include reduce-motion {
+      animation: propmptAnimation 0.6s ease-in-out 2 forwards;
+
+      &.connect-to-network {
+        .dropdown-toggle {
+          animation: propmptAnimationBorder 0.6s ease-in-out 2 forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes propmptAnimation {
+  0% {opacity: 1}
+  50% {opacity: 0.25}
+  100% {opacity: 1}
+}
+
+@keyframes propmptAnimationBorder {
+  0% {border: 1px solid $form-elements-border-color;}
+  50% {border: 1px solid $error-message-color;}
+  100% {border: 1px solid $form-elements-border-color;}
+}

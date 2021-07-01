@@ -1,0 +1,78 @@
+@use "../../inherit" as *;
+
+@mixin main {
+  @include paragraphs;
+}
+
+@mixin paragraphs {
+  * {
+    font-family: $font-primary;
+    font-weight: $weight-normal;
+    font-size: $size-regular;
+    line-height: $height-regular;
+  }
+
+  h1 {
+    background: $heading-font-color;
+    box-shadow: $box-inner-shadow;
+    border-radius: 64px;
+    font-weight: $weight-bold;
+    line-height: $height-large;
+    text-align: right;
+    text-transform: uppercase;
+
+    color: $color-bright;
+
+    width: 100%;
+    max-width: 325px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mobile-semi {
+      max-width: 270px;
+    }
+  }
+
+  .logo {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .logo-container {
+    .title {
+      margin-left: 15px;
+
+      .sub {
+        font-family: $font-primary;
+        font-weight: $weight-normal;
+        font-size: $size-regular;
+        line-height: $height-large;
+
+        color: $logo-sub-color;
+      }
+
+      .main {
+        font-family: $font-primary;
+        font-style: normal;
+        font-weight: $weight-bold;
+        font-size: $size-large;
+        line-height: $height-largest;
+
+        color: $logo-main-color;
+      }
+    }
+  }
+}
+
+.noty_type__alliance-block {
+  top: 60px;
+  background-color: $white;
+  box-shadow: $box-inner-shadow;
+  border-radius: 3px;
+  color: $color-labels;
+  padding: 20px 30px;
+}
+

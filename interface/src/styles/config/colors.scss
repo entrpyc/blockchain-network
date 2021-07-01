@@ -1,0 +1,48 @@
+$white: #FFF;
+$color-primary: #6D74B0;
+$color-labels: #9E9EEB;
+$color-labels-secondary: #B3B8D7;
+$color-bright: #5466FD;
+$color-footer: #A5A8BA;
+$color-link: #5466FD;
+
+$background-lines-color: linear-gradient(0deg, #dee1ff, #dee1ff 50%, transparent 50%, transparent 100%);
+$background-solid-lines-color: linear-gradient(to bottom,rgba(204, 209, 255, 0) 0%, rgba(204, 209, 255, 0.65) 80%, rgba(204, 209, 255, 0) 100%);
+$background-box-color: radial-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+
+$footer-background: #DEE1FF;
+$button-disabled-color: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), #CCCDD7;
+$form-elements-border-color: #CFD4FF;
+$transaction-information-background-color: #FBFCFF;
+$network-icon-container-background: #F1F2FC;
+$tabs-navigation-background: #F4F5FF;
+$tabs-active-color: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), $color-bright;
+$header-address-background: #F4F4F8;
+$ribbon-background: #EEEFFF;
+$select-placeholder-color: #C5C7E0;
+$modal-overlay-color: rgba(109, 116, 176, 0.1);
+$input-control-background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), rgba(84, 102, 253, 0.1);
+$modal-border-color: #F3F4FF;
+$checkmark-color: #B5B9D7;
+$logo-sub-color: #7B7F99;
+$logo-main-color: #363C72;
+$header-spinner-background: #E9F5FF;
+
+$custom-scrollbar-track: #CFD4FF;
+$custom-scrollbar-thumb: #5769FD;
+$custom-scrollbar-thumb-listing: #DEE1FF;
+
+$error-message-color: #E6007A;
+$prompt-message-color: #ec6a6a;
+
+$info-popup-background: $white;
+$modal-with-search-background: $white;
+$modal-general-background: $white;
+$body-background: $white;
+$header-background: $white;
+$primary-button-color: $white;
+$input-background: $white;
+$tabs-font-color: $white;
+$tabs-background: $white;
+$heading-font-color: $white;
+$claim-window-background: $white;
