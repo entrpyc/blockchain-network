@@ -1,5 +1,5 @@
 const fetch = require('isomorphic-unfetch')
-const { Blockchain, Block, Transaction, sum } = require('../api/modules/blockchain-pow');
+const { Blockchain, Block, Transaction } = require('../api/modules/blockchain-pow');
 
 const sendTransaction = async (from, to, amount) => {
   const data = await fetch('http://localhost:8080/transaction', {
