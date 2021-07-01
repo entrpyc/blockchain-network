@@ -32,19 +32,19 @@ app.post('/transaction', (req, res) => {
   })
 });
 
-app.get('/balance', (req, res) => {
+app.post('/balance', (req, res) => {
   const { address } = req.body;
   const walletBalance = blockchain.getBalanceOfAddress(address)
 
   res.send({
-    balance: `${address}: ${walletBalance}`
+    balance: walletBalance
   })
 });
 
 app.post('/mine', (req, res) => {
   const { miningRewardAddress } = req.body;
 
-  latte.minePendingTransactions(miningRewardAddress)
+  blockchain.minePendingTransactions(miningRewardAddress)
 
   res.send({
     status: `Mined all blocks! Reward will be sent to ${miningRewardAddress}`

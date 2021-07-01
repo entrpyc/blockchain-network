@@ -1,5 +1,5 @@
 const SHA256 = require('crypto-js/sha256');
-const util = require("../utility")
+const util = require("../utility/blockchain")
 
 class Transaction {
   constructor(fromAddress, toAddress, amount) {
@@ -34,7 +34,7 @@ class Blockchain {
   }
 
   createGenesisBlock() {
-    return new Block(util.getEpochTimestamp(), [], SHA256(0).toString());
+    return new Block([]);
   }
 
   getLastBlock() {
@@ -49,6 +49,7 @@ class Blockchain {
     let balance = 0;
 
     for (const block of this.chain) {
+      console.log(block)
       for (const transaction of block.transactions) {
         if(transaction.fromAddress === address) {
           balance -= transaction.amount;

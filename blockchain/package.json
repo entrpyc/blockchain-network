@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "unfetch": "^4.2.0"
+    "isomorphic-unfetch": "^3.1.0"
   },
   "devDependencies": {
     "jest": "^27.0.6"
