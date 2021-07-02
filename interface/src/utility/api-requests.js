@@ -65,3 +65,13 @@ export const getBalance = async (address) => {
 
   return data;
 }
+
+export const verifyChainIntegrity = async () => {
+  const data = await fetch('http://localhost:8080/verify-chain-integrity')
+  .then( r => r.json() )
+  .then( data => {
+    return data;
+  });
+
+  return data;
+}

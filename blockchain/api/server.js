@@ -68,3 +68,8 @@ app.post('/mine', (req, res) => {
     status: `Mined all blocks! Reward will be sent to ${miningRewardAddress}`
   })
 });
+
+app.get('/verify-chain-integrity', (req, res) => {
+  const success = blockchain.verifyChainIntegrity();
+  res.status(200).send(success)
+});

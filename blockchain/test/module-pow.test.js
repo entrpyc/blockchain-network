@@ -49,6 +49,16 @@ const getBlockchain = async () => {
   return data;
 }
 
+const verifyChainIntegrity = async () => {
+  const data = await fetch('http://localhost:8080/verify-chain-integrity')
+  .then( r => r.json() )
+  .then( data => {
+    return data;
+  });
+
+  return data;
+}
+
 const getBalance = async (address) => {
   const data = await fetch('http://localhost:8080/balance', {
     method: 'POST',
@@ -119,4 +129,20 @@ test('get balance of users', async () => {
 
   expect(minerBalance.balance).toBe(0);
   expect(recieverBalance.balance).toBe(600);
+});
+
+test('verify chain integrity', async () => {
+  const sender = "asen"
+  const reciever = "tony"
+  const miner = "rico"
+  const amount = 200
+
+  await sendTransaction(sender, reciever, amount - 20);
+  await sendTransaction(sender, reciever, amount + 12);
+
+  await mineTransactions(miner);
+
+  const chainIsCorrect = await verifyChainIntegrity();
+
+  expect(chainIsCorrect).toBe(true);
 });

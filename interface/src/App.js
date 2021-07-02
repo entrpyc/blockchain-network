@@ -1,9 +1,10 @@
 import { useState } from "react"
 import "./styles/global/_export.scss";
-import { sendTransaction, mineTransactions, getBlockchain, getBalance } from "./utility/api-requests";
+import { sendTransaction, mineTransactions, getBlockchain, getBalance, verifyChainIntegrity } from "./utility/api-requests";
 
 function App() {
   const [blockchain, setBlockchain] = useState();
+  const [chainIntegrity, setChainIntegrity] = useState(true);
   const [userBalance, setUserBalance] = useState();
   const [userAddressInput, setUserAddressInput] = useState('');
   const [userAddressFromInput, setUserAddressFromInput] = useState('');
@@ -16,6 +17,11 @@ function App() {
   async function onGetBlockchain() {
     const res = await getBlockchain();
     setBlockchain(JSON.stringify(res, null, 2))
+  }
+
+  async function onVerifyChainIntegrity() {
+    const res = await verifyChainIntegrity();
+    setChainIntegrity(JSON.stringify(res))
   }
 
   async function onMineTransactions() {
@@ -54,6 +60,8 @@ function App() {
   return (
     <div className="app-container container">
       <div className="primary-button" onClick={onGetBlockchain}>Get Blockchain</div>
+
+      <div className="primary-button" onClick={onVerifyChainIntegrity}>Verify Chain Integrity</div>
       
       <div className="wrapper flex center">
         <input type="text" placeholder="Address" onInput={e => setUserAddressInput(e.target.value)} value={userAddressInput} />
@@ -86,6 +94,10 @@ function App() {
       
       <div className="status">
         {mineStatus}
+      </div>
+
+      <div className="status">
+        {chainIntegrity}
       </div>
     </div>
   );
