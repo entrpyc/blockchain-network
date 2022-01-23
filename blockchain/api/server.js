@@ -2,7 +2,7 @@ const express = require('express');
 const app = require('express')();
 const { Blockchain, Transaction } = require("./modules/blockchain-pow");
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 const blockchain = new Blockchain();
 

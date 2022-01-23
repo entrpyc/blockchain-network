@@ -1,0 +1,21 @@
+{
+  "name": "blockchain-network",
+  "version": "1.0.0",
+  "description": "Run the server:\r ```Shell\r cd blockchain\r yarn api\r ```",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd blockchain && npm i",
+    "serve": "cd blockchain && npm run api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/entrpyc/blockchain-network.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/entrpyc/blockchain-network/issues"
+  },
+  "homepage": "https://github.com/entrpyc/blockchain-network#readme"
+}

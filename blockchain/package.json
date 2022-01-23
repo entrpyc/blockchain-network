@@ -4,12 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "api": "bash shell/run-api.sh",
+    "api": "node api/server.js",
     "test": "jest"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "isomorphic-unfetch": "^3.1.0"
+    "isomorphic-unfetch": "^3.1.0",
+    "sha256": "^0.2.0"
   },
   "devDependencies": {
     "jest": "^27.0.6"

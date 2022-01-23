@@ -1,4 +1,4 @@
-const SHA256 = require('crypto-js/sha256');
+const sha256 = require('sha256');
 const util = require("../utility/blockchain")
 
 class Transaction {
@@ -17,7 +17,7 @@ class Block {
   }
 
   calculateHash() {
-    return SHA256(
+    return sha256(
       this.previousHash +
       this.timestamp +
       JSON.stringify(this.transactions) +

@@ -1,4 +1,3 @@
-const SHA256 = require('crypto-js/sha256');
 const { Transaction, Block, Blockchain } = require('../main');
 
 class BlockPoF extends Block {
